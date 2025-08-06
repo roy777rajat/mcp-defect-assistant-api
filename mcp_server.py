@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import Optional
+from fastapi.responses import JSONResponse
 
 from mcp_llm_api import process_user_comment
 
@@ -14,7 +15,9 @@ class CommentInput(BaseModel):
 async def handle_mcp_request(data: CommentInput):
     return process_user_comment(data.comment, data.confirm)
 
-
+@app.get("/health")
+def health_check():
+    return JSONResponse(content={"status": "ok"}, status_code=200)
 # mcp_server_memory.py
 # from fastapi import FastAPI, Request
 # from pydantic import BaseModel
