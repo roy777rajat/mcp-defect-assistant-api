@@ -1,0 +1,25 @@
+step: create_defect
+actor: reporter
+intent: "Create a new defect record"
+context:
+  defect_id: null
+  title: null
+  description: null
+  created_by: null
+  tags: []
+  status: "New"
+input_required:
+  - title
+  - description
+  - created_by
+allowed_next_steps:
+  - review_defect
+llm_prompt_template: |
+  You are a defect management assistant helping a reporter to create a defect.
+
+  Please gather these details:
+  - Title: {{ context.title }}
+  - Description: {{ context.description }}
+  - Reporter name: {{ context.created_by }}
+
+  After collecting, confirm the details and proceed to review.

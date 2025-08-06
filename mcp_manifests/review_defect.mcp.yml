@@ -1,0 +1,28 @@
+step: review_defect
+actor: engineer
+intent: "Review defect details and find similar defects"
+context:
+  defect_id: null
+  title: null
+  description: null
+  status: "New"
+  assigned_to: null
+  tags: []
+  comments: []
+input_required:
+  - defect_id
+  - review_comments
+allowed_next_steps:
+  - assign_defect
+  - close_defect
+llm_prompt_template: |
+  You are assisting an engineer reviewing defect {{ context.defect_id }}.
+
+  Title: {{ context.title }}
+  Description: {{ context.description }}
+  Current status: {{ context.status }}
+  Tags: {{ context.tags }}
+
+  Use the defect description to find similar defects and suggest related fixes.
+
+  Please provide review comments and suggest next steps: {{ allowed_next_steps }}.

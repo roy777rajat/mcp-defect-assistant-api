@@ -1,0 +1,1 @@
+# Format Neo4j defect into string for embedding

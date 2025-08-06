@@ -1,0 +1,39 @@
+defaults:
+  region: "eu-west-1"
+
+  # AWS Secrets Manager keys
+  shared_secret: "dev/python/api"
+
+  # Bedrock models
+  bedrock_model_titan_v1: "amazon.titan-embed-text-v1"
+  bedrock_model_titan_v2: "amazon.titan-embed-text-v2:0"
+
+  bedrock_model_claude_v3: "anthropic.claude-3-sonnet-20240229-v1:0"
+  bedrock_model_claude_haiku: "anthropic.claude-3-haiku-20240307-v1:0"
+
+  anthropic_version: "bedrock-2023-05-31"
+
+  # Embedding/search configs
+  embedding_dim: 1536
+  top_k: 5
+
+  # Optional: fallback/defaults
+  language: "en"
+  timestamp_format: "%Y-%m-%dT%H:%M:%SZ"
+
+  # Neo4j labels and relationship types (if needed in automation)
+  neo4j_labels:
+    defect: "Defect"
+    comment: "Comment"
+    tag: "Tag"
+    person: "Person"
+
+  neo4j_relationships:
+    has_comment: "HAS_COMMENT"
+    tagged_with: "TAGGED_WITH"
+    by: "BY"
+    related_to: "RELATED_TO"
+
+  # Optional: Titan retry and timeout control
+  bedrock_timeout_sec: 10
+  bedrock_retry: 3

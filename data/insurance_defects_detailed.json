@@ -1,0 +1,2549 @@
+[
+  {
+    "id": "INS-1000",
+    "summary": "Mismatch in fund allocation logic under accounting configuration.",
+    "description": "This defect was logged in the accounting area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "accounting",
+      "performance"
+    ],
+    "status": "Resolved",
+    "created_by": "Hitesh",
+    "updated_by": "Irene",
+    "created_on": "2025-06-22 18:23:54",
+    "updated_on": "2025-05-06 18:23:54",
+    "comments": [
+      {
+        "author": "Grace",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-03-01 18:23:54"
+      },
+      {
+        "author": "Emma",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-02-08 18:23:54"
+      },
+      {
+        "author": "Olivia",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-04-13 18:23:54"
+      },
+      {
+        "author": "Raj",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-02-18 18:23:54"
+      },
+      {
+        "author": "Nikhil",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-05-03 18:23:54"
+      },
+      {
+        "author": "Raj",
+        "text": "Escalated to product team. Impact assessment pending.",
+        "commented_on": "2025-05-14 18:23:54"
+      },
+      {
+        "author": "Grace",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-05-22 18:23:54"
+      },
+      {
+        "author": "Grace",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-05-12 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-06-10 18:23:54"
+      },
+      {
+        "author": "Raj",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-06-04 18:23:54"
+      },
+      {
+        "author": "Brian",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-07-22 18:23:54"
+      },
+      {
+        "author": "Nikhil",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-06-21 18:23:54"
+      },
+      {
+        "author": "Brian",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-03-03 18:23:54"
+      },
+      {
+        "author": "Tom",
+        "text": "Escalated to product team. Impact assessment pending.",
+        "commented_on": "2025-06-27 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1001",
+    "summary": "Incorrect handling in correspondence and statements when legacy policy data is loaded.",
+    "description": "This defect was logged in the correspondence and statements area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "correspondence and statements",
+      "accounting"
+    ],
+    "status": "Reopened",
+    "created_by": "Hitesh",
+    "updated_by": "Grace",
+    "created_on": "2025-02-23 18:23:54",
+    "updated_on": "2025-07-23 18:23:54",
+    "comments": [
+      {
+        "author": "Faisal",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-05-07 18:23:54"
+      },
+      {
+        "author": "Olivia",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-02-24 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-03-08 18:23:54"
+      },
+      {
+        "author": "Maya",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-07-20 18:23:54"
+      },
+      {
+        "author": "Emma",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-02-27 18:23:54"
+      },
+      {
+        "author": "Raj",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-05-18 18:23:54"
+      },
+      {
+        "author": "Hitesh",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-04-11 18:23:54"
+      },
+      {
+        "author": "Faisal",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-03-28 18:23:54"
+      },
+      {
+        "author": "Grace",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-04-20 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Escalated to product team. Impact assessment pending.",
+        "commented_on": "2025-05-11 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-04-08 18:23:54"
+      },
+      {
+        "author": "Maya",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-06-01 18:23:54"
+      },
+      {
+        "author": "Irene",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1000?",
+        "commented_on": "2025-02-07 18:23:54"
+      },
+      {
+        "author": "Tom",
+        "text": "Is this defect similar to INS-1000? Logs look similar but flow is different.",
+        "commented_on": "2025-05-23 18:23:54"
+      },
+      {
+        "author": "Maya",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-07-22 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1002",
+    "summary": "Mismatch in fund allocation logic under payment in configuration.",
+    "description": "This defect was logged in the payment in area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "calculations",
+      "payment in"
+    ],
+    "status": "Resolved",
+    "created_by": "Grace",
+    "updated_by": "David",
+    "created_on": "2025-07-05 18:23:54",
+    "updated_on": "2025-02-20 18:23:54",
+    "comments": [
+      {
+        "author": "Irene",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-06-15 18:23:54"
+      },
+      {
+        "author": "Brian",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-04-13 18:23:54"
+      },
+      {
+        "author": "Faisal",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-05-17 18:23:54"
+      },
+      {
+        "author": "Priya",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-04-13 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "Logs show mismatch between valuation date and accounting date.",
+        "commented_on": "2025-03-19 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "Escalated to product team. Impact assessment pending.",
+        "commented_on": "2025-05-03 18:23:54"
+      },
+      {
+        "author": "Brian",
+        "text": "Logs show mismatch between valuation date and accounting date.",
+        "commented_on": "2025-04-11 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "Client raised this again. Seems like previous fix didn't persist across environments.",
+        "commented_on": "2025-04-15 18:23:54"
+      },
+      {
+        "author": "Quincy",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-03-12 18:23:54"
+      },
+      {
+        "author": "Leo",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-02-20 18:23:54"
+      },
+      {
+        "author": "Leo",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-06-01 18:23:54"
+      },
+      {
+        "author": "Tom",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-03-02 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1003",
+    "summary": "Unexpected null pointer in reports post v6.2 release.",
+    "description": "This defect was logged in the reports area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "reports"
+    ],
+    "status": "Resolved",
+    "created_by": "David",
+    "updated_by": "John",
+    "created_on": "2025-06-22 18:23:54",
+    "updated_on": "2025-04-01 18:23:54",
+    "comments": [
+      {
+        "author": "Kavita",
+        "text": "Client raised this again. Seems like previous fix didn't persist across environments.",
+        "commented_on": "2025-07-09 18:23:54"
+      },
+      {
+        "author": "Uma",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-06-03 18:23:54"
+      },
+      {
+        "author": "Priya",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-03-11 18:23:54"
+      },
+      {
+        "author": "Alice",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-05-04 18:23:54"
+      },
+      {
+        "author": "Raj",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1001?",
+        "commented_on": "2025-02-16 18:23:54"
+      },
+      {
+        "author": "Alice",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-05-02 18:23:54"
+      },
+      {
+        "author": "Carla",
+        "text": "Is this defect similar to INS-1002? Logs look similar but flow is different.",
+        "commented_on": "2025-02-12 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-06-21 18:23:54"
+      },
+      {
+        "author": "Leo",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-02-04 18:23:54"
+      },
+      {
+        "author": "Grace",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1000?",
+        "commented_on": "2025-02-02 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1001?",
+        "commented_on": "2025-02-24 18:23:54"
+      },
+      {
+        "author": "Tom",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-07-27 18:23:54"
+      },
+      {
+        "author": "Kavita",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-04-06 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1004",
+    "summary": "Mismatch in fund allocation logic under accounting configuration.",
+    "description": "This defect was logged in the accounting area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "accounting",
+      "calculations"
+    ],
+    "status": "Reopened",
+    "created_by": "Olivia",
+    "updated_by": "Carla",
+    "created_on": "2025-04-05 18:23:54",
+    "updated_on": "2025-02-07 18:23:54",
+    "comments": [
+      {
+        "author": "Uma",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-06-05 18:23:54"
+      },
+      {
+        "author": "Alice",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-07-09 18:23:54"
+      },
+      {
+        "author": "Tom",
+        "text": "Logs show mismatch between valuation date and accounting date.",
+        "commented_on": "2025-04-13 18:23:54"
+      },
+      {
+        "author": "Hitesh",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-03-27 18:23:54"
+      },
+      {
+        "author": "Priya",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-04-16 18:23:54"
+      },
+      {
+        "author": "Irene",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-02-10 18:23:54"
+      },
+      {
+        "author": "Maya",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-06-13 18:23:54"
+      },
+      {
+        "author": "Priya",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-07-20 18:23:54"
+      },
+      {
+        "author": "Hitesh",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-05-03 18:23:54"
+      },
+      {
+        "author": "Grace",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-02-05 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-04-17 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-07-12 18:23:54"
+      },
+      {
+        "author": "Maya",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1000?",
+        "commented_on": "2025-04-10 18:23:54"
+      },
+      {
+        "author": "Leo",
+        "text": "Escalated to product team. Impact assessment pending.",
+        "commented_on": "2025-06-23 18:23:54"
+      },
+      {
+        "author": "Leo",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-02-18 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-03-04 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1005",
+    "summary": "Unexpected null pointer in tax post v6.2 release.",
+    "description": "This defect was logged in the tax area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "tax",
+      "API"
+    ],
+    "status": "Closed",
+    "created_by": "Irene",
+    "updated_by": "Uma",
+    "created_on": "2025-04-26 18:23:54",
+    "updated_on": "2025-07-16 18:23:54",
+    "comments": [
+      {
+        "author": "Olivia",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-07-03 18:23:54"
+      },
+      {
+        "author": "Priya",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-02-14 18:23:54"
+      },
+      {
+        "author": "Leo",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-07-09 18:23:54"
+      },
+      {
+        "author": "Brian",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-05-21 18:23:54"
+      },
+      {
+        "author": "Uma",
+        "text": "Is this defect similar to INS-1003? Logs look similar but flow is different.",
+        "commented_on": "2025-07-20 18:23:54"
+      },
+      {
+        "author": "Maya",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-02-20 18:23:54"
+      },
+      {
+        "author": "Maya",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-04-29 18:23:54"
+      },
+      {
+        "author": "Leo",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-05-29 18:23:54"
+      },
+      {
+        "author": "Hitesh",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-02-25 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-07-22 18:23:54"
+      },
+      {
+        "author": "Brian",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-05-08 18:23:54"
+      },
+      {
+        "author": "Olivia",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-07-13 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1006",
+    "summary": "Unexpected null pointer in digital FE post v6.2 release.",
+    "description": "This defect was logged in the digital FE area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "generic party",
+      "digital FE"
+    ],
+    "status": "Open",
+    "created_by": "David",
+    "updated_by": "Olivia",
+    "created_on": "2025-05-15 18:23:54",
+    "updated_on": "2025-05-20 18:23:54",
+    "comments": [
+      {
+        "author": "Tom",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-06-29 18:23:54"
+      },
+      {
+        "author": "Tom",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-02-19 18:23:54"
+      },
+      {
+        "author": "Raj",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-02-06 18:23:54"
+      },
+      {
+        "author": "Olivia",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-02-18 18:23:54"
+      },
+      {
+        "author": "Leo",
+        "text": "Client raised this again. Seems like previous fix didn't persist across environments.",
+        "commented_on": "2025-05-08 18:23:54"
+      },
+      {
+        "author": "Olivia",
+        "text": "Client raised this again. Seems like previous fix didn't persist across environments.",
+        "commented_on": "2025-05-17 18:23:54"
+      },
+      {
+        "author": "Emma",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-05-04 18:23:54"
+      },
+      {
+        "author": "Hitesh",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-06-29 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-04-26 18:23:54"
+      },
+      {
+        "author": "Carla",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-05-21 18:23:54"
+      },
+      {
+        "author": "Nikhil",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-06-23 18:23:54"
+      },
+      {
+        "author": "Tom",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-05-18 18:23:54"
+      },
+      {
+        "author": "Carla",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-05-29 18:23:54"
+      },
+      {
+        "author": "Hitesh",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-06-21 18:23:54"
+      },
+      {
+        "author": "Leo",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-02-16 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1007",
+    "summary": "Error in tax module during pension batch job execution.",
+    "description": "This defect was logged in the tax area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "tax",
+      "API"
+    ],
+    "status": "Closed",
+    "created_by": "Nikhil",
+    "updated_by": "Brian",
+    "created_on": "2025-04-08 18:23:54",
+    "updated_on": "2025-03-09 18:23:54",
+    "comments": [
+      {
+        "author": "Priya",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-02-24 18:23:54"
+      },
+      {
+        "author": "Alice",
+        "text": "Logs show mismatch between valuation date and accounting date.",
+        "commented_on": "2025-07-18 18:23:54"
+      },
+      {
+        "author": "Faisal",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-03-12 18:23:54"
+      },
+      {
+        "author": "Hitesh",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-02-23 18:23:54"
+      },
+      {
+        "author": "Carla",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-06-30 18:23:54"
+      },
+      {
+        "author": "Faisal",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1004?",
+        "commented_on": "2025-02-20 18:23:54"
+      },
+      {
+        "author": "Grace",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-02-06 18:23:54"
+      },
+      {
+        "author": "Olivia",
+        "text": "Is this defect similar to INS-1006? Logs look similar but flow is different.",
+        "commented_on": "2025-04-03 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-07-23 18:23:54"
+      },
+      {
+        "author": "Brian",
+        "text": "Escalated to product team. Impact assessment pending.",
+        "commented_on": "2025-07-12 18:23:54"
+      },
+      {
+        "author": "Emma",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-06-01 18:23:54"
+      },
+      {
+        "author": "Leo",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-02-14 18:23:54"
+      },
+      {
+        "author": "Quincy",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-02-21 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1008",
+    "summary": "Error in accounting module during pension batch job execution.",
+    "description": "This defect was logged in the accounting area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "accounting",
+      "operational"
+    ],
+    "status": "Open",
+    "created_by": "Irene",
+    "updated_by": "Carla",
+    "created_on": "2025-07-26 18:23:54",
+    "updated_on": "2025-04-28 18:23:54",
+    "comments": [
+      {
+        "author": "Grace",
+        "text": "Is this defect similar to INS-1001? Logs look similar but flow is different.",
+        "commented_on": "2025-06-22 18:23:54"
+      },
+      {
+        "author": "Hitesh",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-07-29 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-03-18 18:23:54"
+      },
+      {
+        "author": "Alice",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-02-21 18:23:54"
+      },
+      {
+        "author": "Maya",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-05-06 18:23:54"
+      },
+      {
+        "author": "Maya",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-03-03 18:23:54"
+      },
+      {
+        "author": "Raj",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-07-25 18:23:54"
+      },
+      {
+        "author": "Quincy",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-03-04 18:23:54"
+      },
+      {
+        "author": "Raj",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-05-29 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-03-02 18:23:54"
+      },
+      {
+        "author": "Tom",
+        "text": "Client raised this again. Seems like previous fix didn't persist across environments.",
+        "commented_on": "2025-02-03 18:23:54"
+      },
+      {
+        "author": "Olivia",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1007?",
+        "commented_on": "2025-04-14 18:23:54"
+      },
+      {
+        "author": "Alice",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-05-30 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-05-09 18:23:54"
+      },
+      {
+        "author": "Uma",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-06-03 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-05-29 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1009",
+    "summary": "Unexpected null pointer in generic party post v6.2 release.",
+    "description": "This defect was logged in the generic party area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "API",
+      "generic party"
+    ],
+    "status": "Closed",
+    "created_by": "Raj",
+    "updated_by": "Priya",
+    "created_on": "2025-05-24 18:23:54",
+    "updated_on": "2025-03-20 18:23:54",
+    "comments": [
+      {
+        "author": "Quincy",
+        "text": "Is this defect similar to INS-1000? Logs look similar but flow is different.",
+        "commented_on": "2025-05-03 18:23:54"
+      },
+      {
+        "author": "John",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-02-07 18:23:54"
+      },
+      {
+        "author": "Hitesh",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-06-26 18:23:54"
+      },
+      {
+        "author": "Quincy",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-07-24 18:23:54"
+      },
+      {
+        "author": "Priya",
+        "text": "Logs show mismatch between valuation date and accounting date.",
+        "commented_on": "2025-05-14 18:23:54"
+      },
+      {
+        "author": "Priya",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-07-22 18:23:54"
+      },
+      {
+        "author": "Hitesh",
+        "text": "Is this defect similar to INS-1001? Logs look similar but flow is different.",
+        "commented_on": "2025-02-05 18:23:54"
+      },
+      {
+        "author": "Quincy",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-05-04 18:23:54"
+      },
+      {
+        "author": "Maya",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-05-20 18:23:54"
+      },
+      {
+        "author": "Olivia",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-04-11 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Client raised this again. Seems like previous fix didn't persist across environments.",
+        "commented_on": "2025-02-12 18:23:54"
+      },
+      {
+        "author": "Emma",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-03-01 18:23:54"
+      },
+      {
+        "author": "Hitesh",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1003?",
+        "commented_on": "2025-05-18 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1010",
+    "summary": "Error in operational module during pension batch job execution.",
+    "description": "This defect was logged in the operational area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "reports",
+      "operational"
+    ],
+    "status": "Open",
+    "created_by": "Nikhil",
+    "updated_by": "Leo",
+    "created_on": "2025-07-08 18:23:54",
+    "updated_on": "2025-02-04 18:23:54",
+    "comments": [
+      {
+        "author": "Quincy",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-07-29 18:23:54"
+      },
+      {
+        "author": "Tom",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-05-19 18:23:54"
+      },
+      {
+        "author": "Hitesh",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-02-07 18:23:54"
+      },
+      {
+        "author": "John",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1004?",
+        "commented_on": "2025-06-29 18:23:54"
+      },
+      {
+        "author": "Nikhil",
+        "text": "Is this defect similar to INS-1009? Logs look similar but flow is different.",
+        "commented_on": "2025-03-20 18:23:54"
+      },
+      {
+        "author": "Emma",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1006?",
+        "commented_on": "2025-07-09 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-06-15 18:23:54"
+      },
+      {
+        "author": "Hitesh",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-07-17 18:23:54"
+      },
+      {
+        "author": "Maya",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-04-23 18:23:54"
+      },
+      {
+        "author": "Maya",
+        "text": "Escalated to product team. Impact assessment pending.",
+        "commented_on": "2025-04-18 18:23:54"
+      },
+      {
+        "author": "Olivia",
+        "text": "Is this defect similar to INS-1002? Logs look similar but flow is different.",
+        "commented_on": "2025-06-06 18:23:54"
+      },
+      {
+        "author": "Raj",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-02-10 18:23:54"
+      },
+      {
+        "author": "Faisal",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-04-26 18:23:54"
+      },
+      {
+        "author": "Tom",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-06-08 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1011",
+    "summary": "Mismatch in fund allocation logic under accounting configuration.",
+    "description": "This defect was logged in the accounting area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "accounting",
+      "generic party"
+    ],
+    "status": "Resolved",
+    "created_by": "Maya",
+    "updated_by": "John",
+    "created_on": "2025-06-22 18:23:54",
+    "updated_on": "2025-02-20 18:23:54",
+    "comments": [
+      {
+        "author": "Raj",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1009?",
+        "commented_on": "2025-04-14 18:23:54"
+      },
+      {
+        "author": "John",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-03-07 18:23:54"
+      },
+      {
+        "author": "Alice",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-04-14 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-03-24 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-02-06 18:23:54"
+      },
+      {
+        "author": "Nikhil",
+        "text": "Escalated to product team. Impact assessment pending.",
+        "commented_on": "2025-07-26 18:23:54"
+      },
+      {
+        "author": "Nikhil",
+        "text": "Logs show mismatch between valuation date and accounting date.",
+        "commented_on": "2025-03-17 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-05-25 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-07-08 18:23:54"
+      },
+      {
+        "author": "Maya",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-06-04 18:23:54"
+      },
+      {
+        "author": "Faisal",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-04-04 18:23:54"
+      },
+      {
+        "author": "Grace",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-07-16 18:23:54"
+      },
+      {
+        "author": "Nikhil",
+        "text": "Escalated to product team. Impact assessment pending.",
+        "commented_on": "2025-03-17 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1012",
+    "summary": "Mismatch in fund allocation logic under accounting configuration.",
+    "description": "This defect was logged in the accounting area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "accounting",
+      "service request"
+    ],
+    "status": "Resolved",
+    "created_by": "Nikhil",
+    "updated_by": "Faisal",
+    "created_on": "2025-06-26 18:23:54",
+    "updated_on": "2025-06-17 18:23:54",
+    "comments": [
+      {
+        "author": "Priya",
+        "text": "Client raised this again. Seems like previous fix didn't persist across environments.",
+        "commented_on": "2025-07-22 18:23:54"
+      },
+      {
+        "author": "Kavita",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-02-05 18:23:54"
+      },
+      {
+        "author": "Hitesh",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-06-01 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-02-14 18:23:54"
+      },
+      {
+        "author": "Kavita",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-06-08 18:23:54"
+      },
+      {
+        "author": "Kavita",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-07-22 18:23:54"
+      },
+      {
+        "author": "Alice",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-04-25 18:23:54"
+      },
+      {
+        "author": "Priya",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-06-25 18:23:54"
+      },
+      {
+        "author": "Hitesh",
+        "text": "Logs show mismatch between valuation date and accounting date.",
+        "commented_on": "2025-02-08 18:23:54"
+      },
+      {
+        "author": "Raj",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-05-05 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-06-19 18:23:54"
+      },
+      {
+        "author": "Nikhil",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-02-27 18:23:54"
+      },
+      {
+        "author": "Brian",
+        "text": "Client raised this again. Seems like previous fix didn't persist across environments.",
+        "commented_on": "2025-06-19 18:23:54"
+      },
+      {
+        "author": "Olivia",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-04-29 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1013",
+    "summary": "performance fails when beneficiary is missing from party block.",
+    "description": "This defect was logged in the performance area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "service request",
+      "performance"
+    ],
+    "status": "Closed",
+    "created_by": "Grace",
+    "updated_by": "Olivia",
+    "created_on": "2025-06-18 18:23:54",
+    "updated_on": "2025-02-08 18:23:54",
+    "comments": [
+      {
+        "author": "Raj",
+        "text": "Logs show mismatch between valuation date and accounting date.",
+        "commented_on": "2025-02-18 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-05-15 18:23:54"
+      },
+      {
+        "author": "Uma",
+        "text": "Escalated to product team. Impact assessment pending.",
+        "commented_on": "2025-06-02 18:23:54"
+      },
+      {
+        "author": "Raj",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-06-19 18:23:54"
+      },
+      {
+        "author": "Brian",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1002?",
+        "commented_on": "2025-07-28 18:23:54"
+      },
+      {
+        "author": "Tom",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-05-28 18:23:54"
+      },
+      {
+        "author": "Carla",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-04-30 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1002?",
+        "commented_on": "2025-05-15 18:23:54"
+      },
+      {
+        "author": "Uma",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-03-27 18:23:54"
+      },
+      {
+        "author": "Olivia",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1012?",
+        "commented_on": "2025-05-28 18:23:54"
+      },
+      {
+        "author": "John",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-02-21 18:23:54"
+      },
+      {
+        "author": "Carla",
+        "text": "Client raised this again. Seems like previous fix didn't persist across environments.",
+        "commented_on": "2025-02-26 18:23:54"
+      },
+      {
+        "author": "Kavita",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-05-09 18:23:54"
+      },
+      {
+        "author": "Nikhil",
+        "text": "Client raised this again. Seems like previous fix didn't persist across environments.",
+        "commented_on": "2025-04-29 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1014",
+    "summary": "Mismatch in fund allocation logic under service request configuration.",
+    "description": "This defect was logged in the service request area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "service request",
+      "operational"
+    ],
+    "status": "Closed",
+    "created_by": "Grace",
+    "updated_by": "Irene",
+    "created_on": "2025-04-10 18:23:54",
+    "updated_on": "2025-05-25 18:23:54",
+    "comments": [
+      {
+        "author": "John",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-06-19 18:23:54"
+      },
+      {
+        "author": "Grace",
+        "text": "Is this defect similar to INS-1011? Logs look similar but flow is different.",
+        "commented_on": "2025-06-17 18:23:54"
+      },
+      {
+        "author": "Emma",
+        "text": "Client raised this again. Seems like previous fix didn't persist across environments.",
+        "commented_on": "2025-02-11 18:23:54"
+      },
+      {
+        "author": "Priya",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-04-11 18:23:54"
+      },
+      {
+        "author": "Raj",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-02-27 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-05-22 18:23:54"
+      },
+      {
+        "author": "Raj",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1000?",
+        "commented_on": "2025-02-09 18:23:54"
+      },
+      {
+        "author": "Olivia",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-02-09 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-03-05 18:23:54"
+      },
+      {
+        "author": "Tom",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-02-12 18:23:54"
+      },
+      {
+        "author": "Nikhil",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-04-22 18:23:54"
+      },
+      {
+        "author": "Nikhil",
+        "text": "Escalated to product team. Impact assessment pending.",
+        "commented_on": "2025-06-01 18:23:54"
+      },
+      {
+        "author": "Nikhil",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-06-16 18:23:54"
+      },
+      {
+        "author": "Leo",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-07-23 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1015",
+    "summary": "Mismatch in fund allocation logic under claim configuration.",
+    "description": "This defect was logged in the claim area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "payment out",
+      "claim"
+    ],
+    "status": "Resolved",
+    "created_by": "Maya",
+    "updated_by": "Brian",
+    "created_on": "2025-06-30 18:23:54",
+    "updated_on": "2025-02-17 18:23:54",
+    "comments": [
+      {
+        "author": "Kavita",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-07-06 18:23:54"
+      },
+      {
+        "author": "Tom",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-05-20 18:23:54"
+      },
+      {
+        "author": "Priya",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-06-07 18:23:54"
+      },
+      {
+        "author": "Carla",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-04-13 18:23:54"
+      },
+      {
+        "author": "Grace",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-04-30 18:23:54"
+      },
+      {
+        "author": "Grace",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-06-20 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-06-15 18:23:54"
+      },
+      {
+        "author": "Faisal",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-03-10 18:23:54"
+      },
+      {
+        "author": "Olivia",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-02-19 18:23:54"
+      },
+      {
+        "author": "Alice",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-04-23 18:23:54"
+      },
+      {
+        "author": "Alice",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-05-12 18:23:54"
+      },
+      {
+        "author": "Kavita",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1001?",
+        "commented_on": "2025-03-12 18:23:54"
+      },
+      {
+        "author": "Alice",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-06-10 18:23:54"
+      },
+      {
+        "author": "Priya",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-02-04 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1016",
+    "summary": "Error in service request module during pension batch job execution.",
+    "description": "This defect was logged in the service request area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "service request",
+      "generic party"
+    ],
+    "status": "Resolved",
+    "created_by": "John",
+    "updated_by": "Brian",
+    "created_on": "2025-04-15 18:23:54",
+    "updated_on": "2025-04-11 18:23:54",
+    "comments": [
+      {
+        "author": "Leo",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1002?",
+        "commented_on": "2025-07-07 18:23:54"
+      },
+      {
+        "author": "Tom",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-06-04 18:23:54"
+      },
+      {
+        "author": "Quincy",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-04-28 18:23:54"
+      },
+      {
+        "author": "Quincy",
+        "text": "Escalated to product team. Impact assessment pending.",
+        "commented_on": "2025-04-13 18:23:54"
+      },
+      {
+        "author": "Priya",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-03-18 18:23:54"
+      },
+      {
+        "author": "Raj",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1000?",
+        "commented_on": "2025-07-07 18:23:54"
+      },
+      {
+        "author": "Uma",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-03-02 18:23:54"
+      },
+      {
+        "author": "Maya",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-05-14 18:23:54"
+      },
+      {
+        "author": "Alice",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-05-12 18:23:54"
+      },
+      {
+        "author": "Nikhil",
+        "text": "Client raised this again. Seems like previous fix didn't persist across environments.",
+        "commented_on": "2025-06-23 18:23:54"
+      },
+      {
+        "author": "Faisal",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-04-03 18:23:54"
+      },
+      {
+        "author": "Grace",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1001?",
+        "commented_on": "2025-05-27 18:23:54"
+      },
+      {
+        "author": "Nikhil",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-04-08 18:23:54"
+      },
+      {
+        "author": "Uma",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-04-15 18:23:54"
+      },
+      {
+        "author": "Irene",
+        "text": "Is this defect similar to INS-1015? Logs look similar but flow is different.",
+        "commented_on": "2025-07-28 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1017",
+    "summary": "tax fails when beneficiary is missing from party block.",
+    "description": "This defect was logged in the tax area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "tax",
+      "operational"
+    ],
+    "status": "Reopened",
+    "created_by": "Grace",
+    "updated_by": "Leo",
+    "created_on": "2025-05-21 18:23:54",
+    "updated_on": "2025-06-19 18:23:54",
+    "comments": [
+      {
+        "author": "Sara",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-05-15 18:23:54"
+      },
+      {
+        "author": "Grace",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-07-11 18:23:54"
+      },
+      {
+        "author": "Grace",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-05-26 18:23:54"
+      },
+      {
+        "author": "Uma",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-03-15 18:23:54"
+      },
+      {
+        "author": "Tom",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-06-16 18:23:54"
+      },
+      {
+        "author": "Kavita",
+        "text": "Client raised this again. Seems like previous fix didn't persist across environments.",
+        "commented_on": "2025-06-19 18:23:54"
+      },
+      {
+        "author": "Brian",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-04-24 18:23:54"
+      },
+      {
+        "author": "Irene",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1003?",
+        "commented_on": "2025-02-21 18:23:54"
+      },
+      {
+        "author": "Quincy",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-02-12 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-02-20 18:23:54"
+      },
+      {
+        "author": "Quincy",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-05-26 18:23:54"
+      },
+      {
+        "author": "Leo",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-03-07 18:23:54"
+      },
+      {
+        "author": "Faisal",
+        "text": "Is this defect similar to INS-1003? Logs look similar but flow is different.",
+        "commented_on": "2025-03-12 18:23:54"
+      },
+      {
+        "author": "Raj",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-05-30 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1018",
+    "summary": "claim fails when beneficiary is missing from party block.",
+    "description": "This defect was logged in the claim area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "claim",
+      "digital FE"
+    ],
+    "status": "Resolved",
+    "created_by": "Quincy",
+    "updated_by": "Maya",
+    "created_on": "2025-05-21 18:23:54",
+    "updated_on": "2025-06-17 18:23:54",
+    "comments": [
+      {
+        "author": "Brian",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-05-03 18:23:54"
+      },
+      {
+        "author": "Priya",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-05-15 18:23:54"
+      },
+      {
+        "author": "Priya",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-02-25 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "Client raised this again. Seems like previous fix didn't persist across environments.",
+        "commented_on": "2025-05-04 18:23:54"
+      },
+      {
+        "author": "Quincy",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-02-11 18:23:54"
+      },
+      {
+        "author": "Leo",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-05-30 18:23:54"
+      },
+      {
+        "author": "Emma",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-07-04 18:23:54"
+      },
+      {
+        "author": "Faisal",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-07-03 18:23:54"
+      },
+      {
+        "author": "Grace",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1015?",
+        "commented_on": "2025-04-22 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-04-03 18:23:54"
+      },
+      {
+        "author": "Carla",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-05-14 18:23:54"
+      },
+      {
+        "author": "Tom",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-06-02 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1019",
+    "summary": "Mismatch in fund allocation logic under generic party configuration.",
+    "description": "This defect was logged in the generic party area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "tax",
+      "generic party"
+    ],
+    "status": "Reopened",
+    "created_by": "Maya",
+    "updated_by": "Emma",
+    "created_on": "2025-02-27 18:23:54",
+    "updated_on": "2025-06-27 18:23:54",
+    "comments": [
+      {
+        "author": "David",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-05-23 18:23:54"
+      },
+      {
+        "author": "Hitesh",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-06-11 18:23:54"
+      },
+      {
+        "author": "Brian",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-06-19 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-06-22 18:23:54"
+      },
+      {
+        "author": "Olivia",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-05-08 18:23:54"
+      },
+      {
+        "author": "Alice",
+        "text": "Escalated to product team. Impact assessment pending.",
+        "commented_on": "2025-07-20 18:23:54"
+      },
+      {
+        "author": "Kavita",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-06-28 18:23:54"
+      },
+      {
+        "author": "Leo",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-05-11 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-04-24 18:23:54"
+      },
+      {
+        "author": "Maya",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-04-17 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1005?",
+        "commented_on": "2025-07-14 18:23:54"
+      },
+      {
+        "author": "John",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-03-23 18:23:54"
+      },
+      {
+        "author": "Olivia",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-03-26 18:23:54"
+      },
+      {
+        "author": "Maya",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1006?",
+        "commented_on": "2025-03-20 18:23:54"
+      },
+      {
+        "author": "Quincy",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-04-08 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-07-14 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1020",
+    "summary": "Mismatch in fund allocation logic under operational configuration.",
+    "description": "This defect was logged in the operational area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "operational"
+    ],
+    "status": "Reopened",
+    "created_by": "Maya",
+    "updated_by": "Sara",
+    "created_on": "2025-05-10 18:23:54",
+    "updated_on": "2025-02-06 18:23:54",
+    "comments": [
+      {
+        "author": "Grace",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-03-06 18:23:54"
+      },
+      {
+        "author": "Quincy",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-05-19 18:23:54"
+      },
+      {
+        "author": "Emma",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-02-20 18:23:54"
+      },
+      {
+        "author": "Priya",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-02-16 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Is this defect similar to INS-1011? Logs look similar but flow is different.",
+        "commented_on": "2025-05-03 18:23:54"
+      },
+      {
+        "author": "Carla",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-07-24 18:23:54"
+      },
+      {
+        "author": "Olivia",
+        "text": "Is this defect similar to INS-1019? Logs look similar but flow is different.",
+        "commented_on": "2025-05-26 18:23:54"
+      },
+      {
+        "author": "Quincy",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-05-20 18:23:54"
+      },
+      {
+        "author": "Faisal",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-05-21 18:23:54"
+      },
+      {
+        "author": "Raj",
+        "text": "Is this defect similar to INS-1014? Logs look similar but flow is different.",
+        "commented_on": "2025-05-09 18:23:54"
+      },
+      {
+        "author": "Maya",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-06-07 18:23:54"
+      },
+      {
+        "author": "Maya",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-02-14 18:23:54"
+      },
+      {
+        "author": "Quincy",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-04-02 18:23:54"
+      },
+      {
+        "author": "Alice",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-07-07 18:23:54"
+      },
+      {
+        "author": "Irene",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1007?",
+        "commented_on": "2025-03-10 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1021",
+    "summary": "Mismatch in fund allocation logic under accounting configuration.",
+    "description": "This defect was logged in the accounting area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "accounting"
+    ],
+    "status": "Open",
+    "created_by": "Grace",
+    "updated_by": "Faisal",
+    "created_on": "2025-05-11 18:23:54",
+    "updated_on": "2025-05-17 18:23:54",
+    "comments": [
+      {
+        "author": "Hitesh",
+        "text": "Escalated to product team. Impact assessment pending.",
+        "commented_on": "2025-06-25 18:23:54"
+      },
+      {
+        "author": "Maya",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-03-06 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Is this defect similar to INS-1008? Logs look similar but flow is different.",
+        "commented_on": "2025-02-09 18:23:54"
+      },
+      {
+        "author": "Tom",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-06-11 18:23:54"
+      },
+      {
+        "author": "Faisal",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1006?",
+        "commented_on": "2025-07-04 18:23:54"
+      },
+      {
+        "author": "Brian",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-05-31 18:23:54"
+      },
+      {
+        "author": "Alice",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-05-16 18:23:54"
+      },
+      {
+        "author": "Hitesh",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-06-08 18:23:54"
+      },
+      {
+        "author": "Tom",
+        "text": "Client raised this again. Seems like previous fix didn't persist across environments.",
+        "commented_on": "2025-05-09 18:23:54"
+      },
+      {
+        "author": "Raj",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-07-10 18:23:54"
+      },
+      {
+        "author": "Carla",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-07-12 18:23:54"
+      },
+      {
+        "author": "Quincy",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-02-18 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1022",
+    "summary": "Incorrect handling in claim when legacy policy data is loaded.",
+    "description": "This defect was logged in the claim area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "tax",
+      "claim"
+    ],
+    "status": "Resolved",
+    "created_by": "Carla",
+    "updated_by": "Sara",
+    "created_on": "2025-03-21 18:23:54",
+    "updated_on": "2025-06-02 18:23:54",
+    "comments": [
+      {
+        "author": "Alice",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-04-16 18:23:54"
+      },
+      {
+        "author": "John",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-06-15 18:23:54"
+      },
+      {
+        "author": "Grace",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-03-15 18:23:54"
+      },
+      {
+        "author": "Leo",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-04-12 18:23:54"
+      },
+      {
+        "author": "Quincy",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-07-03 18:23:54"
+      },
+      {
+        "author": "Olivia",
+        "text": "Logs show mismatch between valuation date and accounting date.",
+        "commented_on": "2025-02-04 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-06-16 18:23:54"
+      },
+      {
+        "author": "Quincy",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-04-27 18:23:54"
+      },
+      {
+        "author": "Nikhil",
+        "text": "Logs show mismatch between valuation date and accounting date.",
+        "commented_on": "2025-03-08 18:23:54"
+      },
+      {
+        "author": "Kavita",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-04-18 18:23:54"
+      },
+      {
+        "author": "Brian",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-06-11 18:23:54"
+      },
+      {
+        "author": "Carla",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-06-27 18:23:54"
+      },
+      {
+        "author": "Leo",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-04-02 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1023",
+    "summary": "generic party fails when beneficiary is missing from party block.",
+    "description": "This defect was logged in the generic party area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "operational",
+      "generic party"
+    ],
+    "status": "Open",
+    "created_by": "Irene",
+    "updated_by": "Raj",
+    "created_on": "2025-06-03 18:23:54",
+    "updated_on": "2025-03-19 18:23:54",
+    "comments": [
+      {
+        "author": "Kavita",
+        "text": "Is this defect similar to INS-1000? Logs look similar but flow is different.",
+        "commented_on": "2025-06-27 18:23:54"
+      },
+      {
+        "author": "Olivia",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-03-20 18:23:54"
+      },
+      {
+        "author": "Kavita",
+        "text": "Is this defect similar to INS-1019? Logs look similar but flow is different.",
+        "commented_on": "2025-05-31 18:23:54"
+      },
+      {
+        "author": "Faisal",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-02-08 18:23:54"
+      },
+      {
+        "author": "Alice",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-05-23 18:23:54"
+      },
+      {
+        "author": "Olivia",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-05-05 18:23:54"
+      },
+      {
+        "author": "Olivia",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-07-19 18:23:54"
+      },
+      {
+        "author": "Kavita",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-07-22 18:23:54"
+      },
+      {
+        "author": "Carla",
+        "text": "Client raised this again. Seems like previous fix didn't persist across environments.",
+        "commented_on": "2025-02-18 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-05-25 18:23:54"
+      },
+      {
+        "author": "Grace",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-05-06 18:23:54"
+      },
+      {
+        "author": "Raj",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-04-03 18:23:54"
+      },
+      {
+        "author": "Tom",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-06-29 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1024",
+    "summary": "Unexpected null pointer in payment out post v6.2 release.",
+    "description": "This defect was logged in the payment out area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "payment out",
+      "operational"
+    ],
+    "status": "Resolved",
+    "created_by": "Leo",
+    "updated_by": "Alice",
+    "created_on": "2025-05-27 18:23:54",
+    "updated_on": "2025-04-08 18:23:54",
+    "comments": [
+      {
+        "author": "Brian",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-07-31 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-02-27 18:23:54"
+      },
+      {
+        "author": "Nikhil",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-05-26 18:23:54"
+      },
+      {
+        "author": "Raj",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-07-16 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-05-05 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-06-03 18:23:54"
+      },
+      {
+        "author": "Tom",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-03-09 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-03-11 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-02-14 18:23:54"
+      },
+      {
+        "author": "Nikhil",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-04-13 18:23:54"
+      },
+      {
+        "author": "Leo",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-05-09 18:23:54"
+      },
+      {
+        "author": "Olivia",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-06-28 18:23:54"
+      },
+      {
+        "author": "Priya",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-07-04 18:23:54"
+      },
+      {
+        "author": "Quincy",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-04-20 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1025",
+    "summary": "Error in interface module during pension batch job execution.",
+    "description": "This defect was logged in the interface area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "interface",
+      "claim"
+    ],
+    "status": "Reopened",
+    "created_by": "David",
+    "updated_by": "Sara",
+    "created_on": "2025-02-20 18:23:54",
+    "updated_on": "2025-06-29 18:23:54",
+    "comments": [
+      {
+        "author": "Brian",
+        "text": "Logs show mismatch between valuation date and accounting date.",
+        "commented_on": "2025-07-27 18:23:54"
+      },
+      {
+        "author": "Irene",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-04-27 18:23:54"
+      },
+      {
+        "author": "Leo",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-03-02 18:23:54"
+      },
+      {
+        "author": "Emma",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-05-04 18:23:54"
+      },
+      {
+        "author": "Priya",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-05-31 18:23:54"
+      },
+      {
+        "author": "Tom",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-05-08 18:23:54"
+      },
+      {
+        "author": "Priya",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1016?",
+        "commented_on": "2025-07-14 18:23:54"
+      },
+      {
+        "author": "Irene",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-05-24 18:23:54"
+      },
+      {
+        "author": "Quincy",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-06-14 18:23:54"
+      },
+      {
+        "author": "John",
+        "text": "Client raised this again. Seems like previous fix didn't persist across environments.",
+        "commented_on": "2025-03-08 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "Client raised this again. Seems like previous fix didn't persist across environments.",
+        "commented_on": "2025-04-21 18:23:54"
+      },
+      {
+        "author": "Carla",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-03-19 18:23:54"
+      },
+      {
+        "author": "Grace",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1018?",
+        "commented_on": "2025-07-17 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1026",
+    "summary": "reports fails when beneficiary is missing from party block.",
+    "description": "This defect was logged in the reports area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "reports",
+      "performance"
+    ],
+    "status": "Closed",
+    "created_by": "Hitesh",
+    "updated_by": "Brian",
+    "created_on": "2025-05-10 18:23:54",
+    "updated_on": "2025-04-09 18:23:54",
+    "comments": [
+      {
+        "author": "Nikhil",
+        "text": "Client raised this again. Seems like previous fix didn't persist across environments.",
+        "commented_on": "2025-05-05 18:23:54"
+      },
+      {
+        "author": "Nikhil",
+        "text": "Is this defect similar to INS-1013? Logs look similar but flow is different.",
+        "commented_on": "2025-05-18 18:23:54"
+      },
+      {
+        "author": "Alice",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-06-13 18:23:54"
+      },
+      {
+        "author": "Faisal",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-04-12 18:23:54"
+      },
+      {
+        "author": "Alice",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-02-11 18:23:54"
+      },
+      {
+        "author": "Carla",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-03-19 18:23:54"
+      },
+      {
+        "author": "Maya",
+        "text": "Logs show mismatch between valuation date and accounting date.",
+        "commented_on": "2025-03-31 18:23:54"
+      },
+      {
+        "author": "Alice",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-05-01 18:23:54"
+      },
+      {
+        "author": "Irene",
+        "text": "David mentioned it might be a null object issue but logs don't confirm that.",
+        "commented_on": "2025-03-27 18:23:54"
+      },
+      {
+        "author": "Emma",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-04-19 18:23:54"
+      },
+      {
+        "author": "Quincy",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-06-04 18:23:54"
+      },
+      {
+        "author": "Maya",
+        "text": "Escalated to product team. Impact assessment pending.",
+        "commented_on": "2025-04-13 18:23:54"
+      },
+      {
+        "author": "Brian",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-02-27 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1027",
+    "summary": "Incorrect handling in operational when legacy policy data is loaded.",
+    "description": "This defect was logged in the operational area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "interface",
+      "operational"
+    ],
+    "status": "Closed",
+    "created_by": "Brian",
+    "updated_by": "Carla",
+    "created_on": "2025-05-30 18:23:54",
+    "updated_on": "2025-04-10 18:23:54",
+    "comments": [
+      {
+        "author": "Olivia",
+        "text": "Logs show mismatch between valuation date and accounting date.",
+        "commented_on": "2025-07-20 18:23:54"
+      },
+      {
+        "author": "Alice",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-02-23 18:23:54"
+      },
+      {
+        "author": "Nikhil",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-07-27 18:23:54"
+      },
+      {
+        "author": "Uma",
+        "text": "Escalated to product team. Impact assessment pending.",
+        "commented_on": "2025-06-22 18:23:54"
+      },
+      {
+        "author": "Olivia",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1024?",
+        "commented_on": "2025-04-07 18:23:54"
+      },
+      {
+        "author": "Brian",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-05-20 18:23:54"
+      },
+      {
+        "author": "Kavita",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-07-21 18:23:54"
+      },
+      {
+        "author": "Uma",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-05-23 18:23:54"
+      },
+      {
+        "author": "Brian",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-05-01 18:23:54"
+      },
+      {
+        "author": "Kavita",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-07-13 18:23:54"
+      },
+      {
+        "author": "Faisal",
+        "text": "Is this defect similar to INS-1019? Logs look similar but flow is different.",
+        "commented_on": "2025-04-25 18:23:54"
+      },
+      {
+        "author": "Priya",
+        "text": "Is this defect similar to INS-1003? Logs look similar but flow is different.",
+        "commented_on": "2025-07-27 18:23:54"
+      },
+      {
+        "author": "Leo",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-03-26 18:23:54"
+      },
+      {
+        "author": "Carla",
+        "text": "Is this defect similar to INS-1019? Logs look similar but flow is different.",
+        "commented_on": "2025-07-20 18:23:54"
+      },
+      {
+        "author": "Leo",
+        "text": "Reproduced the issue on policy ID 88923. Is this related to ticket INS-1017?",
+        "commented_on": "2025-07-09 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-05-07 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1028",
+    "summary": "Unexpected null pointer in digital FE post v6.2 release.",
+    "description": "This defect was logged in the digital FE area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "claim",
+      "digital FE"
+    ],
+    "status": "Closed",
+    "created_by": "Leo",
+    "updated_by": "Leo",
+    "created_on": "2025-07-26 18:23:54",
+    "updated_on": "2025-05-24 18:23:54",
+    "comments": [
+      {
+        "author": "Emma",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-04-27 18:23:54"
+      },
+      {
+        "author": "Grace",
+        "text": "Escalated to product team. Impact assessment pending.",
+        "commented_on": "2025-07-18 18:23:54"
+      },
+      {
+        "author": "John",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-06-02 18:23:54"
+      },
+      {
+        "author": "Maya",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-04-10 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-04-19 18:23:54"
+      },
+      {
+        "author": "Irene",
+        "text": "Weird behavior. Steps are unclear. Can someone provide a consistent repro?",
+        "commented_on": "2025-04-18 18:23:54"
+      },
+      {
+        "author": "Faisal",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-03-22 18:23:54"
+      },
+      {
+        "author": "Grace",
+        "text": "Client raised this again. Seems like previous fix didn't persist across environments.",
+        "commented_on": "2025-07-19 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-07-08 18:23:54"
+      },
+      {
+        "author": "Faisal",
+        "text": "It\u2019s working after patch but root cause still unclear.",
+        "commented_on": "2025-03-13 18:23:54"
+      },
+      {
+        "author": "Tom",
+        "text": "Escalated to product team. Impact assessment pending.",
+        "commented_on": "2025-06-30 18:23:54"
+      },
+      {
+        "author": "Carla",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-07-29 18:23:54"
+      }
+    ]
+  },
+  {
+    "id": "INS-1029",
+    "summary": "Error in reports module during pension batch job execution.",
+    "description": "This defect was logged in the reports area. Users experienced issues while executing pension operations tied to this module.",
+    "tags": [
+      "reports",
+      "correspondence and statements"
+    ],
+    "status": "Reopened",
+    "created_by": "Hitesh",
+    "updated_by": "Emma",
+    "created_on": "2025-04-16 18:23:54",
+    "updated_on": "2025-07-07 18:23:54",
+    "comments": [
+      {
+        "author": "Kavita",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-02-15 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "Is this defect similar to INS-1025? Logs look similar but flow is different.",
+        "commented_on": "2025-04-02 18:23:54"
+      },
+      {
+        "author": "Quincy",
+        "text": "Escalated to product team. Impact assessment pending.",
+        "commented_on": "2025-04-27 18:23:54"
+      },
+      {
+        "author": "Brian",
+        "text": "Logs show mismatch between valuation date and accounting date.",
+        "commented_on": "2025-06-20 18:23:54"
+      },
+      {
+        "author": "Tom",
+        "text": "Tested on environment A, but behavior differs from B. Not sure why this is happening yet.",
+        "commented_on": "2025-03-13 18:23:54"
+      },
+      {
+        "author": "Alice",
+        "text": "Mark from accounting suggested recalculating but with updated surrender factors.",
+        "commented_on": "2025-05-10 18:23:54"
+      },
+      {
+        "author": "John",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-04-01 18:23:54"
+      },
+      {
+        "author": "Raj",
+        "text": "Client raised this again. Seems like previous fix didn't persist across environments.",
+        "commented_on": "2025-02-18 18:23:54"
+      },
+      {
+        "author": "David",
+        "text": "Unable to simulate on staging, working fine here. Could be data dependent.",
+        "commented_on": "2025-04-05 18:23:54"
+      },
+      {
+        "author": "Sara",
+        "text": "We assumed corrected values were passed but that wasn\u2019t the case.",
+        "commented_on": "2025-03-31 18:23:54"
+      },
+      {
+        "author": "Carla",
+        "text": "Client raised this again. Seems like previous fix didn't persist across environments.",
+        "commented_on": "2025-02-04 18:23:54"
+      },
+      {
+        "author": "Brian",
+        "text": "Regression found in other flows \u2014 possibly due to changes here.",
+        "commented_on": "2025-06-07 18:23:54"
+      },
+      {
+        "author": "Carla",
+        "text": "Temporary fix applied but unsure if it covers all edge cases.",
+        "commented_on": "2025-06-15 18:23:54"
+      },
+      {
+        "author": "Olivia",
+        "text": "Quick fix deployed on prod, but rollback was triggered due to a tax error.",
+        "commented_on": "2025-04-28 18:23:54"
+      }
+    ]
+  }
+]

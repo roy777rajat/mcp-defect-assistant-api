@@ -1,0 +1,21 @@
+step: add_comment
+actor: engineer
+intent: "Add comment to defect"
+context:
+  defect_id: null
+  comments: []
+input_required:
+  - defect_id
+  - comment_text
+  - commenter_name
+allowed_next_steps:
+  - update_status
+  - close_defect
+llm_prompt_template: |
+  You are adding a comment to defect {{ context.defect_id }}.
+
+  Existing comments: {{ context.comments }}
+
+  Please provide your comment.
+
+  Next steps: {{ allowed_next_steps }}.

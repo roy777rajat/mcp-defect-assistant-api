@@ -1,0 +1,20 @@
+step: assign_defect
+actor: manager
+intent: "Assign defect to engineer"
+context:
+  defect_id: null
+  assigned_to: null
+input_required:
+  - defect_id
+  - engineer_name
+allowed_next_steps:
+  - update_status
+  - add_comment
+llm_prompt_template: |
+  You are helping a manager assign defect {{ context.defect_id }}.
+
+  Current assigned engineer: {{ context.assigned_to }}
+
+  Please provide engineer name to assign the defect.
+
+  Suggested next steps: {{ allowed_next_steps }}.

@@ -1,0 +1,20 @@
+step: update_status
+actor: engineer
+intent: "Update defect status"
+context:
+  defect_id: null
+  status: null
+input_required:
+  - defect_id
+  - new_status
+allowed_next_steps:
+  - add_comment
+  - close_defect
+llm_prompt_template: |
+  You are helping update the status of defect {{ context.defect_id }}.
+
+  Current status: {{ context.status }}
+
+  Please provide the new status.
+
+  Next steps after updating status: {{ allowed_next_steps }}.

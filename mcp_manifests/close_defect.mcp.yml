@@ -1,0 +1,17 @@
+step: close_defect
+actor: engineer
+intent: "Close the defect if resolved"
+context:
+  defect_id: null
+  status: "Resolved"
+input_required:
+  - defect_id
+  - close_reason
+allowed_next_steps:
+  - none
+llm_prompt_template: |
+  You are closing defect {{ context.defect_id }}.
+
+  Please provide a reason for closing the defect.
+
+  This is the last step.
